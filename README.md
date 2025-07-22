@@ -1,5 +1,5 @@
 # hospital-encounters-sql-project
-SQL project dealing with a synthetic hospital encounters dataset spanning 11 years. Analyzing patient readmissions, encounter , length of stay, revenue, and procedural trends
+This SQL project explores patient readmissions, encounter types, lengths of stay, revenue, and procedural trends
 
 This is a synthetic dataset for a single hospital detailing 27,891 patient encounters spanning from from 2011-2022. This dataset contains the following tables:
 
