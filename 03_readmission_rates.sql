@@ -1,9 +1,9 @@
-/* What groups have the highest risk of returning to the hospital within 30 days (readmission)? *?
+/* What groups have the highest risk of returning to the hospital within 30 days (readmission)? 
 What are the readmission rates for:
 (1) Overall
 (2) Age Groups
 (3) Encounter Types
-(4) Payer (Insurance Providers)
+(4) Payer (Insurance Providers) */
 
 (1) Overall Readmission Rate
 with encounters_order as (
