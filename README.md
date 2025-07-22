@@ -9,4 +9,4 @@ This is a synthetic dataset for a single hospital detailing 27,891 patient encou
 - 'procedures': procedure details of those performed during encounters
 - 'organization': general details about the hospital (name, address, city, etc.)
 
--- All tables have foreign keys linking back to parent keys in the 'encounters' table
+The 'encounters' table is the parent table with other tables having a foreign key linking back to 'encounters'.
