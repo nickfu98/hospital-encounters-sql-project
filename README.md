@@ -1,5 +1,5 @@
 # hospital-encounters-sql-project
-📊 Role: Data Analyst | 📁 Tool: SQL Server Management Studio | 🩺 Domain: Healthcare Analytics
+
 This project explores patient readmissions, encounter types, lengths of stay, revenue, and procedural trends
 
 DATASET OVERVIEW
