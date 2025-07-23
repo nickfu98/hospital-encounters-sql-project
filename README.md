@@ -7,11 +7,11 @@ This project explores patient readmissions, encounter types, lengths of stay, re
 _This is a synthetic dataset for a single hospital detailing 27,891 patient encounters spanning from from 2011-2022.
 It the following tables:_
 
-_- 'encounters': hospital visit details including start/stop date/times, encounter class, encounter/patient/payer/ IDs, and claims cost details
+- 'encounters': hospital visit details including start/stop date/times, encounter class, encounter/patient/payer/ IDs, and claims cost details
 - 'patients': patient details and demographics (birth/death dates, gender, etc.)
 - 'payers': insurance provider details linked to encounters
 - 'procedures': procedure details linked to the encounters
-- 'organization': general details about the hospital (name, address, city, etc.)_
+- 'organization': general details about the hospital (name, address, city, etc.)
 
 _The 'encounters' table is the parent table with other tables having a foreign key linking back to 'encounters'._
 
