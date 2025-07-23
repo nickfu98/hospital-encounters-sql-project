@@ -18,6 +18,7 @@ Business Problem:
 How does hospital leadership excel revenue optimization, improve operational efficiency, and reduce readmission risk by understanding patient volume patterns and the different trends across different age groups, insurance types, and clinical services?
 
 Key Questions Answered:
+
 (01) PATIENT VOLUME TRENDS: Which patient types drive encounter volume across time, age, procedures, and encounter class?
   (1) How many total encounters occur each month? year? Year-over-year changes?
 
