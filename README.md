@@ -23,13 +23,10 @@ How does hospital leadership excel revenue optimization, improve operational eff
 
 **(01) PATIENT VOLUME TRENDS: Which patient types drive encounter volume across time, age, procedures, and encounter class?**
 
-  - (1) How many total encounters occur each month? year? Year-over-year changes?
-
-  - (2) Which age groups make up the most amount of encounters?
-
-  - (3) Which procedures are most commonly performed by the hospital
-
-  - (4) What encounter types are the most common?
+  1. How many total encounters occur each month? year? Year-over-year changes?
+  2.  Which age groups make up the most amount of encounters?
+  3.  Which procedures are most commonly performed by the hospital
+  4.  What encounter types are the most common?
 
 
 
