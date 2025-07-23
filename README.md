@@ -2,6 +2,7 @@
 
 This project explores patient readmissions, encounter types, lengths of stay, revenue, and procedural trends
 
+
 DATASET OVERVIEW
 This is a synthetic dataset for a single hospital detailing 27,891 patient encounters spanning from from 2011-2022.
 It the following tables:
@@ -17,6 +18,7 @@ The 'encounters' table is the parent table with other tables having a foreign ke
 Business Problem:
 How does hospital leadership excel revenue optimization, improve operational efficiency, and reduce readmission risk by understanding patient volume patterns and the different trends across different age groups, insurance types, and clinical services?
 
+
 Key Questions Answered:
 
 (01) PATIENT VOLUME TRENDS: Which patient types drive encounter volume across time, age, procedures, and encounter class?
@@ -30,12 +32,15 @@ Key Questions Answered:
 
 
 
+
 (02) LENGTH OF STAY: Which patients and procedures result in longer stays? What times of year contribute to longer stays and how does that change year-to-year?
   (1) What is the average length of stay (LoS) based on age group?
 
   (2) What is the average length of stay (LoS) over time, by month and year?
 
   (3) What are the procedures that contribute most to the longest length of stays?
+
+
 
 
 (03) READMISSION RATES: Which patients are most likely to be readmitted back to the hospital within 30 days? How do these rates vary by age, encounter class, and payer?
@@ -48,10 +53,15 @@ Key Questions Answered:
   (4) Which Payers have the highest readmission rates?
 
 
+
+
 (04) REVENUE ANALYSIS: Which procedures and insurance providers generate the most revenue for the hospital?
   (1) Which nsurance providers bringing in the most revenue?
 
   (2) Which procedures are bringing in the most revenue?
+
+
+
 
 (05) TOP PROCEDURES: What are the most common procedures by age group and gender?
   (1) What are the top 5 procedures for each age group?
