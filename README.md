@@ -1,6 +1,6 @@
 # hospital-encounters-sql-project
 
-This project explores patient readmissions, encounter types, lengths of stay, revenue, and procedural trends
+This project explores patient readmissions, encounter types, lengths of stay, revenue, and procedural trends using SQL Server Management Studio.
 
 
 **DATASET OVERVIEW**
