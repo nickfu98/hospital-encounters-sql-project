@@ -21,7 +21,7 @@ How does hospital leadership excel revenue optimization, improve operational eff
 
 **Key Questions Answered:**
 
-**(01) PATIENT VOLUME TRENDS: Which patient types drive encounter volume across time, age, procedures, and encounter class?**
+**PATIENT VOLUME TRENDS: Which patient types drive encounter volume across time, age, procedures, and encounter class?**
 
   1. How many total encounters occur each month? year? Year-over-year changes?
   2.  Which age groups make up the most amount of encounters?
@@ -29,45 +29,30 @@ How does hospital leadership excel revenue optimization, improve operational eff
   4.  What encounter types are the most common?
 
 
+**LENGTH OF STAY: Which patients and procedures result in longer stays? What times of year contribute to longer stays and how does that change year-to-year?**
+
+  1. What is the average length of stay (LoS) based on age group?
+  2. What is the average length of stay (LoS) over time, by month and year?
+  3. What are the procedures that contribute most to the longest length of stays?
 
 
-**(02) LENGTH OF STAY: Which patients and procedures result in longer stays? What times of year contribute to longer stays and how does that change year-to-year?**
+**READMISSION RATES: Which patients are most likely to be readmitted back to the hospital within 30 days? How do these rates vary by age, encounter class, and payer?**
 
-  - (1) What is the average length of stay (LoS) based on age group?
-
-  - (2) What is the average length of stay (LoS) over time, by month and year?
-
-  - (3) What are the procedures that contribute most to the longest length of stays?
-
+  1. What is the overall readmission rate?
+  2. Which age groups have the highest readmission rates?
+  3. Which encounter classes have the highest readmission rates?
+  4. Which Payers have the highest readmission rates?
 
 
+**REVENUE ANALYSIS: Which procedures and insurance providers generate the most revenue for the hospital?**
 
-**(03) READMISSION RATES: Which patients are most likely to be readmitted back to the hospital within 30 days? How do these rates vary by age, encounter class, and payer?**
-
-  - (1) What is the overall readmission rate?
-
-  - (2) Which age groups have the highest readmission rates?
-
-  - (3) Which encounter classes have the highest readmission rates?
-
-  - (4) Which Payers have the highest readmission rates?
+  1. Which nsurance providers bringing in the most revenue?
+  2. Which procedures are bringing in the most revenue?
 
 
+**TOP PROCEDURES: What are the most common procedures by age group and gender?**
 
-
-**(04) REVENUE ANALYSIS: Which procedures and insurance providers generate the most revenue for the hospital?**
-
-  - (1) Which nsurance providers bringing in the most revenue?
-
-  - (2) Which procedures are bringing in the most revenue?
-
-
-
-
-**(05) TOP PROCEDURES: What are the most common procedures by age group and gender?**
-
-  - (1) What are the top 5 procedures for each age group?
-
-  - (2) What are the top 10 procedures for each gender?
+  1. What are the top 5 procedures for each age group?
+  2. What are the top 10 procedures for each gender?
 
   
