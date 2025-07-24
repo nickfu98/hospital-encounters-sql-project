@@ -1,5 +1,7 @@
 /* Patient Volume Trends
   (1) Over Time: How many total encounters occur each (a) month? (b) Each year? What are the YoY changes?
+	- Months: Encounters are spread out pretty evenly with February having the most (10%) and all other months at 7%-9% of total encounters
+	- Years: 
   (2) Age Group: How many encounters based on the patient age groups?
   (3) Procedure: What are the most common procedures done by the hospital?
   (4) Encounter type: What encounter types are the most common?
