@@ -7,13 +7,13 @@ This project explores patient readmissions, encounter types, lengths of stay, re
 _This is a synthetic dataset for a single hospital detailing 27,891 patient encounters spanning from from January 2011 - Feburary 2022.
 This dataset contains the following tables:_
 
-- 'encounters': hospital visit details including start/stop date/times, encounter class, encounter/patient/payer/ IDs, and claims cost details
-- 'patients': patient details and demographics (birth/death dates, gender, etc.)
-- 'payers': insurance provider details linked to encounters
-- 'procedures': procedure details linked to the encounters
-- 'organization': general details about the hospital (name, address, city, etc.)
+- 'encounters': Hospital visit details including start/stop date/times, encounter class, encounter/patient/payer/ IDs, and claims cost details
+- 'patients': Patient details and demographics (birth/death dates, gender, etc.)
+- 'payers': Insurance provider details linked to encounters
+- 'procedures': Procedure details linked to the encounters
+- 'organization': General details about the hospital (name, address, city, etc.)
 
-_The 'encounters' table is the parent table with other tables having a foreign key linking back to 'encounters'._
+_The 'encounters' table is the parent table; other tables have a foreign key linking back to 'encounters'._
 
 **Business Problem:**
 How does hospital leadership excel revenue optimization, improve operational efficiency, and reduce readmission risk by understanding patient volume patterns and the different trends across different age groups, insurance types, and clinical services?
