@@ -28,17 +28,13 @@ Hospital leadership must reduce costs, and optimize operations all while improvi
   - Reduce **readmission risk** by identifying patterns in age, insurance, and encounter types
   - Maxmimize **revenue** by tracking the most profitable procedures and payer sources
 
-This project demonstrates my practical SQL skills aligned with the goals of modern healthcare analyticcs.
+By analyzing this dataset in SSMS, I demonstrate my practical SQL skills aligned with the goals of modern healthcare analytics and simuilate the real world responsibilities of a healthcare data analyst.
 
 ---
 
-**Business Problem:**
-How does hospital leadership excel revenue optimization, improve operational efficiency, and reduce readmission risk by understanding patient volume patterns and the different trends across different age groups, insurance types, and clinical services?
+## Key Business Questions Answered
 
-
-**Key Questions Answered:**
-
-## PATIENT VOLUME TRENDS
+### PATIENT VOLUME TRENDS
 **Which patient types drive encounter volume across time, age, procedures, and encounter class?**
 
   1. How many total encounters occur each month? year? Year-over-year changes?
