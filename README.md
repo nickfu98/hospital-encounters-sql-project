@@ -5,7 +5,7 @@ This project explores patient readmissions, encounter types, lengths of stay, re
 
 **DATASET OVERVIEW**
 _This is a synthetic dataset for a single hospital detailing 27,891 patient encounters spanning from from January 2011 - Feburary 2022.
-It the following tables:_
+This dataset contains the following tables:_
 
 - 'encounters': hospital visit details including start/stop date/times, encounter class, encounter/patient/payer/ IDs, and claims cost details
 - 'patients': patient details and demographics (birth/death dates, gender, etc.)
