@@ -1,12 +1,15 @@
-/* Length of Stay (LoS)
+/*
 
 Which patients or serrvices result in longer hospital stays and why?
 (1) Average LoS based on age group
 (2) Average LoS over time: Months and Years
 (3) Longest LoS by Procedure
+
+---------------------------------------------------
+(1) Average Length of Stay by age group
+---------------------------------------------------
 */
 
---(1) Average Length of Stay by age group
 with LOS_age as(
 select
 	encount.encounter_Id,
