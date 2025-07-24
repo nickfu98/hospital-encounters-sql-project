@@ -1,9 +1,14 @@
-# hospital-encounters-sql-project
+# Hospital Encounters SQL Project
 
-This project explores patient readmissions, encounter types, lengths of stay, revenue, and procedural trends using SQL Server Management Studio.
+This project is meant to gain insights into patient readmissions, length of stay, revenue performance, and procedure trends using SQL queries.
 
+Tools Used: SQL Server Management Studio (SSMS)
+Data Size: 27,891 hospital encounters across 11 years
+Focus Area: Healthcare operations and quality analytics
 
-**DATASET OVERVIEW**
+---
+
+## DATASET OVERVIEW
 _This is a synthetic dataset for a single hospital detailing 27,891 patient encounters spanning from from January 2011 - Feburary 2022.
 This dataset contains the following tables:_
 
@@ -15,13 +20,26 @@ This dataset contains the following tables:_
 
 _The 'encounters' table is the parent table; other tables have a foreign key linking back to 'encounters'._
 
+---
+
+## Executive Summary
+Hospital leadership must reduce costs, and optimize operations all while improving patient outcomes. This project uses SSMS to:
+  - Improve **operational efficiency** by analyzing patient volume and length of stay trends
+  - Reduce **readmission risk** by identifying patterns in age, insurance, and encounter types
+  - Maxmimize **revenue** by tracking the most profitable procedures and payer sources
+
+This project demonstrates my practical SQL skills aligned with the goals of modern healthcare analyticcs.
+
+---
+
 **Business Problem:**
 How does hospital leadership excel revenue optimization, improve operational efficiency, and reduce readmission risk by understanding patient volume patterns and the different trends across different age groups, insurance types, and clinical services?
 
 
 **Key Questions Answered:**
 
-**PATIENT VOLUME TRENDS: Which patient types drive encounter volume across time, age, procedures, and encounter class?**
+## PATIENT VOLUME TRENDS
+**Which patient types drive encounter volume across time, age, procedures, and encounter class?**
 
   1. How many total encounters occur each month? year? Year-over-year changes?
   2.  Which age groups make up the most amount of encounters?
