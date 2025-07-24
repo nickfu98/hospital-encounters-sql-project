@@ -1,13 +1,11 @@
 /* Length of Stay Analysis
 
-Business Questions:
-(1) Average LoS based on age group
-(2) Average LoS over time: Months and Years
-(3) Longest LoS by Procedure
+Business Question:
+Which factors affect hospital stay duration the most and by how much?
 
----------------------------------------------------
-(1) Average Length of Stay by age group
----------------------------------------------------
+-------------------------------------------------------
+(1) What is the average length of stay by age group?
+-------------------------------------------------------
 */
 
 with LOS_age as(
@@ -42,9 +40,12 @@ group by age_group
 order by age_group;
 
 
+/*
+-------------------------------------------------------
+(2a) What is the average length of stay each month?
+-------------------------------------------------------
+*/
 
--- (2) Average Length of Stay Trends by month and year
--- Month
 with LOS as(
 select
 	start,
@@ -62,7 +63,12 @@ from LOS
 group by month, month_num
 order by month_num;
 
---Year
+/*
+-------------------------------------------------------
+(2b) What is the average length of stay per year?
+-------------------------------------------------------
+*/
+
 with LOS as(
 select
 	start,
@@ -80,9 +86,12 @@ from LOS
 group by year, year_num
 order by year_num;
 
+/*
+-------------------------------------------------------
+(3) Which procedures have the longest hospital stays?
+-------------------------------------------------------
+*/
 
-
--- (3) Longest Length of Stay based on Procedures
 with LOS as(
 select
 	encount.start,
