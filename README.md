@@ -28,7 +28,7 @@ Hospital leadership must reduce costs, and optimize operations all while improvi
   - Reduce **readmission risk** by identifying patterns in age, insurance, and encounter types
   - Maximize **revenue** by tracking the most profitable procedures and payer sources
 
-By analyzing this dataset in SSMS, I demonstrate my practical SQL skills aligned with the goals of modern healthcare analytics and simulate the real-world responsibilities of a healthcare data analyst.
+I've utilized this project to demonstrate my practical SQL skills aligned with the goals of modern healthcare analytics and simulate the real-world responsibilities of a healthcare data analyst.
 
 ---
 
