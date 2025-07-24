@@ -18,7 +18,7 @@ This dataset contains the following tables:_
 - `procedures`: Procedure details linked to the encounters
 - `organization`: General details about the hospital (name, address, city, etc.)
 
-_The 'encounters' table is the parent table; other tables have a foreign key linking back to 'encounters'._
+_The `encounters` table is the parent table; other tables have a foreign key linking back to `encounters`._
 
 ---
 
@@ -28,7 +28,7 @@ Hospital leadership must reduce costs, and optimize operations all while improvi
   - Reduce **readmission risk** by identifying patterns in age, insurance, and encounter types
   - Maximize **revenue** by tracking the most profitable procedures and payer sources
 
-By analyzing this dataset in SSMS, I demonstrate my practical SQL skills aligned with the goals of modern healthcare analytics and simulate the real world responsibilities of a healthcare data analyst.
+By analyzing this dataset in SSMS, I demonstrate my practical SQL skills aligned with the goals of modern healthcare analytics and simulate the real-world responsibilities of a healthcare data analyst.
 
 ---
 
@@ -37,9 +37,9 @@ By analyzing this dataset in SSMS, I demonstrate my practical SQL skills aligned
 ### PATIENT VOLUME TRENDS
 **Which patient types drive encounter volume across time, age, procedures, and encounter class?**
 
-  - How many total encounters occur each month? year? Year-over-year changes?
-  - Which age groups make up the most amount of encounters?
-  - Which procedures are most commonly performed by the hospital
+  - How many total encounters occur each month and each year? What are the year-over-year changes?
+  - Which age groups account for the most encounters?
+  - Which procedures are most commonly performed by the hospital?
   - What encounter types are the most common?
 
 ---
