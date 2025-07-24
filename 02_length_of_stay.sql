@@ -1,6 +1,6 @@
-/*
+/* Length of Stay Analysis
 
-Which patients or serrvices result in longer hospital stays and why?
+Business Questions:
 (1) Average LoS based on age group
 (2) Average LoS over time: Months and Years
 (3) Longest LoS by Procedure
