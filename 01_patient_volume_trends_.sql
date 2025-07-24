@@ -10,9 +10,9 @@ Key Findings:
 - Asessments of health/social care needs and depression screenings are the most frequent procedures
 - Ambulatory and outpatient encounters account for the majority of the visits (66%)
 
----------------------------------------------------
+-------------------------------------------------------
 (1a) How many total encounters occur each month?
----------------------------------------------------
+-------------------------------------------------------
 */ 
 
 with encounter_date_details as(
@@ -40,10 +40,10 @@ from
 order by month_num;
 
 /*
----------------------------------------------------
+-------------------------------------------------------
 (1b) How many encounters occur each year?
      What are the year-over-year % changes? 		
----------------------------------------------------
+-------------------------------------------------------
 */
 	
 with encounters_year as(
@@ -80,9 +80,9 @@ select
 from yoy_difference;
 
 /*
----------------------------------------------------
+-------------------------------------------------------
 (2) What age groups make up the most encounters?
----------------------------------------------------
+-------------------------------------------------------
 */
 
 with age_group_encounters as(
@@ -121,9 +121,9 @@ order by age_Group;
 
 
 /*
----------------------------------------------------
+-------------------------------------------------------
 (3) What are the most common procedures performed?
----------------------------------------------------
+-------------------------------------------------------
 */
 
 with procedure_encounters as(	
@@ -158,9 +158,9 @@ order by
 
 
 /*
----------------------------------------------------
+-------------------------------------------------------
 (4) What encounter types are most common?
----------------------------------------------------
+-------------------------------------------------------
 */
 
 with encounter_class_encounters as(
