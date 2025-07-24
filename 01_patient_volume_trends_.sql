@@ -1,13 +1,19 @@
 /* Patient Volume Trends
-  (1) Over Time: How many total encounters occur each (a) month? (b) Each year? What are the YoY changes?
-	- Months: Encounters are spread out pretty evenly with February having the most (10%) and all other months at 7%-9% of total encounters
-	- Years: 
-  (2) Age Group: How many encounters based on the patient age groups?
-  (3) Procedure: What are the most common procedures done by the hospital?
-  (4) Encounter type: What encounter types are the most common?
+Business Question:
+Which patient types drive encounter volume across time, age, procedures and encounter class?
+
+Key Findings:
+- February has the highest share of visits (10%)
+- Yearly encounters stays around 2300-2500 except for increased volume in 2014 and 2021
+- Age 80+ patients overwhelmingly account for the largest proportion of visits (60%)
+- Asessments of health/social care needs and depression screenings are the most frequent procedures
+- Ambulatory and outpatient encounters account for the majority of the visits (66%)
+
+---------------------------------------------------
+(1a) How many total encounters occur each month?
+---------------------------------------------------
 */ 
 
--- (1a) Total Encounters each month
 with encounter_date_details as(
 select
 	encount.encounter_id,
@@ -32,9 +38,13 @@ from
 	) Monthly_Encounters
 order by month_num;
 
-
-
--- (1b)Total Encounters by Year and YoY % Change
+/*
+---------------------------------------------------
+(1b) How many encounters occur each year?
+     What are the year-over-year % changes? 		
+---------------------------------------------------
+*/
+	
 with encounters_year as(
 select
 	encount.encounter_id,
@@ -68,9 +78,12 @@ select
 	concat(100*difference/ last_year, '%') end as YoY_Pct_change
 from yoy_difference;
 
+/*
+---------------------------------------------------
+(2) What age groups make up the most encounters?
+---------------------------------------------------
+*/
 
-
--- (2) Total Encounters based on Age Group
 with age_group_encounters as(
 select
 	encount.encounter_id,
@@ -106,8 +119,12 @@ from
 order by age_Group;
 
 
+/*
+---------------------------------------------------
+(3) What are the most common procedures performed?
+---------------------------------------------------
+*/
 
--- (3) Top 10 Procedures 
 with procedure_encounters as(	
 select
 	encount.encounter_id,
@@ -139,8 +156,12 @@ order by
 	encounters desc;
 
 
+/*
+---------------------------------------------------
+(4) What encounter types are most common?
+---------------------------------------------------
+*/
 
--- (5) Most Common Encounter Types
 with encounter_class_encounters as(
 select
 	encount.encounter_id,
