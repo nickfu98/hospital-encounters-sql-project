@@ -1,14 +1,16 @@
 /* Patient Volume Trends
 
+Goal:
+To analyze how patient encounter volume changes over time across different patient demographics, procedure types, and encounter types. These insights help hospitals optimize scheduling, resource allocation, and targeted outreach for higher usage areas.
 Business Question:
 Which patient types drive encounter volume across time, age, procedures and encounter class?
 
 Key Findings:
-- February has the highest share of visits (10%)
-- Yearly encounters stays around 2300-2500 except for increased volume in 2014 and 2021
-- Age 80+ patients overwhelmingly account for the largest proportion of visits (60%)
-- Asessments of health/social care needs and depression screenings are the most frequent procedures
-- Ambulatory and outpatient encounters account for the majority of the visits (66%)
+(1a) February has the highest share of visits (10%)
+(1b) Yearly encounters stays around 2300-2500 except for increased volume in 2014 and 2021
+(2) Age 80+ patients overwhelmingly account for the largest proportion of visits (60%)
+(3) Asessments of health/social care needs and depression screenings are the most frequent procedures
+(4) Ambulatory and outpatient encounters account for the majority of the visits (66%)
 
 -------------------------------------------------------
 (1a) How many total encounters occur each month?
