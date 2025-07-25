@@ -1,6 +1,11 @@
 /* Which payers and procedures bring in the most revenue? */
 
--- (1) Total Revenue by Payer and Average Revenue per Encounter
+/*
+-------------------------------------------------------
+(1) Total Revenue by Payer and Average Revenue per Encounter
+-------------------------------------------------------
+*/
+
 with encounters_payment as (
 	select
 		encount.encounter_id,
@@ -26,8 +31,12 @@ group by payer_name
 order by total_payer_revenue desc;
 
 
+/*
+-------------------------------------------------------
+(2) Top 10 Procedures by Revenue
+-------------------------------------------------------
+*/
 
--- (2) Top 10 Procedures by Revenue
 with procedures_payment as(
 	select
 		encount.encounter_id,
