@@ -5,7 +5,12 @@ What are the readmission rates for:
 (3) Encounter Types
 (4) Payer (Insurance Providers) */
 
--- (1) Overall Readmission Rate
+/*
+-------------------------------------------------------
+(1) Overall Readmission Rate
+-------------------------------------------------------
+*/
+
 with encounters_order as (
 	select
 		encount.patient_id,
@@ -43,8 +48,12 @@ from encounters_order encounto
 	on encounto.encounter_id = readmit.index_encounter_id;
 
 
+/*
+-------------------------------------------------------
+(2) Readmission Rates per Age Group
+-------------------------------------------------------
+*/
 
--- (2) Readmission Rates per Age Group
 with encounters_order as (
 	select
 		encount.patient_id,
@@ -97,9 +106,12 @@ from encounters_order encounto
 group by encounto.age_group
 order by encounto.age_group
 
-
-
--- (3) Readmission rates by Encounter Types
+/*
+-------------------------------------------------------
+(3) Readmission rates by Encounter Types
+-------------------------------------------------------
+*/
+	
 with encounters_order as (
 	select
 		encount.patient_id,
@@ -142,8 +154,12 @@ group by encounto.encounter_class
 order by readmission_rate_30_day desc
 
 
-
--- (4) Readmission rates per Insurance Type (payer)
+/*
+-------------------------------------------------------
+(4) Readmission rates per Insurance Type (payer)
+-------------------------------------------------------
+*/
+	
 with encounters_order as (
 	select
 		encount.patient_id,
