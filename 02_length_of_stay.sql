@@ -8,7 +8,7 @@ Business Questions:
 (2) Which procedures result in longer stays?
 (3) Are there seasonal or year-to-year changes in stay durations?
 
-Findings
+Key Findings
 (1) 30-40 and 40-50 age groups have the highest average lengths of stay at 30 hours.
 (2a) December (21hr) and March (17hr) have the highest average length of stay per month.
 (2b) The average legnth of stay in 2014 is significantly higher than all the other years at 38 hours.
