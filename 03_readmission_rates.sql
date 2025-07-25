@@ -1,9 +1,23 @@
-/* What groups have the highest risk of returning to the hospital within 30 days (readmission)? 
-What are the readmission rates for:
-(1) Overall
-(2) Age Groups
-(3) Encounter Types
-(4) Payer (Insurance Providers) */
+/* 30-Day Readmission Rates
+
+Goal:
+Reduce unnecessary hospital readmissions by identifying which patient groups, encounter types, and insurance payers are most frequently readmitted within 30 days. 
+This analysis helps hospital administrators and care teams to develop better post-discharge strategies in reducing rates of readmission.
+
+Business Questions:
+(1) What is the overall 30-day readmission rate?
+(2) How does readmission vary by age group?
+(3) Are certain encounter types more likely to be readmitted than others?
+(4) Which insurance payers have the highest readmission rates?
+
+
+Key Findings
+(1) The overall 30-day readmission rate is 61.58%. 
+(2) Patients over the age of 80 have the highest rates of readmission by far at 69.46% with 60-70 year olds with the least amount of readmission (41.93%).
+(3) Urgent care visits have the highest rates of readmission at 74.14% and wellness visits have the lowest rates of readmission at 21.28%.
+(4) Patients with no insurance have the highest rates of readmission at 76.83% and those with Anthem insurance have the lowest rates of readmission at 31.35%.
+NOTE: These RR% would be EXTREMELY high in a real world hospital, however coming from a synthetic dataset, the numbers do not reflect reality.
+*/
 
 /*
 -------------------------------------------------------
