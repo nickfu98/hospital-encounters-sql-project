@@ -1,6 +1,11 @@
 /* Which clinical services are being using the most by different patients? */
 
--- (1) Top 5 Procedures by Age Group
+/*
+-------------------------------------------------------
+(1) Top 5 Procedures by Age Group
+-------------------------------------------------------
+*/
+
 with age_group_procedures as(
 	select
 		encount.encounter_Id,
@@ -47,8 +52,12 @@ from
 where ranking <= 5;
 
 
+/*
+-------------------------------------------------------
+(2) Top 10 Procedures per Gender
+-------------------------------------------------------
+*/
 
--- (2) Top 10 Procedures per Gender
 with gender_procedures as(
 	select
 		encount.encounter_Id,
