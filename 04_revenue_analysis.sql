@@ -1,4 +1,33 @@
-/* Which payers and procedures bring in the most revenue? */
+/* Revenue Analysis
+
+Goal:
+To identify the primary sources of hospital revenue by analyzing which insurance payers contribute the most financially, and which medical procedures generate the highest revenues.
+
+Business Questions:
+(1a) Which insurance payers bring in the most revenue?
+(1b) What is the average revenue per encounter for each insurance payer?
+(2a) Which procedures generate the most total revenue?
+(2b) What is the average revenue per encounter for these top procedures?
+
+Key Findings
+(1a) Top 3 insurance payers by total revenue:
+	- Medicare - $19,215,691
+	- Medicaid - $8,471,974
+	- Blue Cross Blue Shield - $2,074,496
+(1b) Top 3 insurance payers by average revenue per encounter:
+	- Medicaid - $5,834 
+	- Blue Cross Blue Shield - $2,243
+	- Medicare - $1,690
+(2a) Top 3 procedures by total revenue:
+	- Electrical cardioversion - $36,464,315
+	- Ausculation of the fetal heart - $18,332,574
+	- Evaluation of uterine fundal height - $18,332,574
+(2b) Top 3 procedures by average revenue per encounter
+	- Transfer to stepdown unit - $385,387
+	- Admit to ICU - $385,130
+	- Resuscitation using intravenous fluid $321,102
+*/
+
 
 /*
 -------------------------------------------------------
