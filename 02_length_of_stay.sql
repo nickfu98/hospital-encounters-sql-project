@@ -1,7 +1,21 @@
 /* Length of Stay Analysis
 
-Business Question:
-Which factors affect hospital stay duration the most and by how much?
+Goal:
+Identify patient factors and services contributing to longer hospital stays to improve capacity planning, reduce resource bottlenecks, and lower care costs.
+
+Business Questions:
+(1) Which patients result in longer hospital stays?
+(2) Which procedures result in longer stays?
+(3) Are there seasonal or year-to-year changes in stay durations?
+
+Findings
+(1) 30-40 and 40-50 age groups have the highest average lengths of stay at 30 hours.
+(2a) December (21hr) and March (17hr) have the highest average length of stay per month.
+(2b) The average legnth of stay in 2014 is significantly higher than all the other years at 38 hours.
+(3) The top 3 procedures with the longest average lengths of stay are all related to breast cancer:
+	- Magnetic resonance imaging of breast - 3382hrs
+	- Screening mammography - 1993hrs
+	- Biopsy of breast - 1463 hrs
 
 -------------------------------------------------------
 (1) What is the average length of stay by age group?
@@ -42,7 +56,7 @@ order by age_group;
 
 /*
 -------------------------------------------------------
-(2a) What is the average length of stay each month?
+(2a) What is the average length of stay per month?
 -------------------------------------------------------
 */
 
