@@ -1,8 +1,28 @@
-/* Which clinical services are being using the most by different patients? */
+/* Most Utilized Medical Procedures
+
+Goal:
+To understand which procedures are most frequently performed based on age group and gender. This information helps guide staffing and resource planning strategies tailored to patient demographics.
+
+Business Questions:
+(1) What are the top procedures performed in each age group?
+(2) What are the top procedures performed amongst male and female patients?
+
+Key Findings:
+(1) Top procedures for each age group:
+	- 30-40 - Ultrasound scan for fetal viability
+	- 40-50 - Auscultation of the fetal heart
+	- 50-60 - Assessment of health and social care needs
+	- 60-70 - Assessment of health and social care needs 
+	- 70-80 - Assessment of health and social care needs
+	- 80+ - Assessment of health and social care needs
+(2) Top procedures for male and female patients
+	- Male - Assessment of health and social care needs, Depression screening using Patient Health Questionnaire Two-Item score, and Depression screening 
+	- Female - Renal dialysis, Assessment of health and social care needs, and Depression screening 
+*/
 
 /*
 -------------------------------------------------------
-(1) Top 5 Procedures by Age Group
+(1) What are the top 5 procedures performed by age group?
 -------------------------------------------------------
 */
 
@@ -54,7 +74,7 @@ where ranking <= 5;
 
 /*
 -------------------------------------------------------
-(2) Top 10 Procedures per Gender
+(2) What are the top 10 procedures performed by gender?
 -------------------------------------------------------
 */
 
