@@ -31,7 +31,7 @@ Key Findings
 
 /*
 -------------------------------------------------------
-(1) Total Revenue by Payer and Average Revenue per Encounter
+(1) Which insurance payers generates the most total revenue and average revenue per encounter?
 -------------------------------------------------------
 */
 
@@ -62,7 +62,7 @@ order by total_payer_revenue desc;
 
 /*
 -------------------------------------------------------
-(2) Top 10 Procedures by Revenue
+(2) Which procedures generate the most revenue and average revenue per encounter?
 -------------------------------------------------------
 */
 
