@@ -1,4 +1,4 @@
-# Hospital Encounters SQL Project
+# Hospital Encounters Analysis SQL Project
 
 This project is meant to gain insights into patient readmissions, length of stay, revenue performance, and procedure trends using SQL queries.
 
