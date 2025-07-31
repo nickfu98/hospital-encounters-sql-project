@@ -17,6 +17,21 @@ Key Findings:
 (3) Urgent care visits have the highest rates of readmission at 74.14% and wellness visits have the lowest rates of readmission at 21.28%.
 (4) Patients with no insurance have the highest rates of readmission at 76.83% and those with Anthem insurance have the lowest rates of readmission at 31.35%.
 NOTE: These RR% would be EXTREMELY high in a real world hospital, however coming from a synthetic dataset, the numbers do not reflect reality.
+
+Recommendations:
+(1) Overall Readmission Rate 61.58%
+	- Make sure patients clearly understand their care and what to do after leaving to reduce readmissions
+	- Keep in touch with patients after discharge for early detection of any problems causing them to readmit
+(2) Readmission by Age Group - 80+
+	- Provide extra support for 80+ age group patients as they have the highest readmission rates. This can include specialized after-care plans,
+	more frequent follow up calls, and at home visits
+	- Figure out why 60-70 year olds have lower readmission rates and try to implement those best practices with the other age groups
+(3) High Readmission Encounter Classes - Urgent care
+	- Pay closer attention to urgent care patients because they have the highest rates of readmission. Arrange follow up visits and prepare after care
+	before they leave so they readmit less
+	- Determine what best practices can be done to reduce the number of urgent care treatments in the first place
+(4) Uninsured Patients Readmit the Most
+	- Help uninsured patients get the medicines, transport, and community support that they need to reduce their readmission rates
 */
 
 /*
