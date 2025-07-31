@@ -20,15 +20,16 @@ Key Findings:
 
 Recommendations
 (1) Focus on the 30-50 Age Group Patients
-	- Focus discharge planning and post-visit care on these patients since they have the highest average lengths of stay
-	- Create special care and resource allocations plans to free up beds faster and avoid delays
-(2) Investigate Factors Resulting in Longer Stays
+	- Patients in this age group have the longest hospital stays
+	- Improve discharge planning and follow-up care to reduce length of stay
+(2) Understand What Causes Longer Stays
 	- Look into why patients stay longer in December and March, such as more illnesses during certain seasons or holidays
 	- Check what happened in 2014 that made average hospital stays longer and make sure to correct any problems found
-	- Plan resources accordingly to reduce lengths of stay especially in December and March
-(3) Breast Cancer Procedures
-	- Focus on improving how breast cancer procedures are handled since they usually have the longest length of stay
-	- Ensure there are enough staff and special care teams to manage breast cancer related procedures
+	- Plan resources accordingly to reduce lengths of stay especially during busier months
+(3) Improve Breast Cancer Procedure Management
+	- Breast cancer related procedures have the longest average stays
+	- Make sure there are enough trained staff and care teams available
+	- Streamline care for these procedures to reduce patient stays
 */
 
 /*
