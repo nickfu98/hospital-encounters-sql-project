@@ -1,23 +1,36 @@
 /* Patient Volume Trends
 
 Goal:
-To analyze how patient encounter volume changes over time across different patient demographics, procedure types, and encounter types. These insights help hospitals optimize scheduling, resource allocation, and targeted outreach for higher usage areas.
+To analyze how patient encounter volume changes over time across different patient demographics, procedure types, and encounter types. 
+These insights help hospitals optimize scheduling, resource allocation, and targeted outreach for higher usage areas.
+
 Business Question:
 Which patient types drive encounter volume across time, age, procedures and encounter class?
 
 Key Findings:
 (1a) February has the highest share of visits (10%)
-(1b) Yearly encounters stays around 2300-2500 except for increased volume in 2014 and 2021
+(1b) Yearly encounters stays around 2,300-2,500 except for increased volume in 2014 and 2021
 (2) Age 80+ patients overwhelmingly account for the largest proportion of visits (60%)
-(3) Asessments of health/social care needs and depression screenings are the most frequent procedures
+(3) Assessments of health/social care needs and depression screenings are the most frequent procedures
 (4) Ambulatory and outpatient encounters account for the majority of the visits (66%)
 
 Recommendations:
-(1a) Prepare for increased demand in February by ensuring adequate staffing, scheduling flexibility and extra availability during the month. 
-(1b) As the 80+ patients make up over 60% of all encounters we should prioritize mobility-friendly infrastructure in and around the hospital, geriatric care services, and chronic disease programs. 
-(2)
-(3)
-(4)
+(1) Plan Ahead for February Demand
+	- February sees the highest encounter volume of the year
+	- Ensure adequate staffing and scheduling flexibility, as well as prepare for additional appointments 
+(2) Prioritize Care for 80+ Age Group
+	- The 80+ age group accounts for 60% of all total visits
+	- Provide accessible infrastructure like wheelchair ramps and transportation services for elderly folks with mobility issues
+	- Invest in programs for elderly care and chronic illness care
+	- Ensure the hospital has safety measures to reduce fall risks
+(3) Support for Mental Health and Social Needs
+	- The most common procedures deal with depression screenings and social care needs
+	- Equip our staff with mental health awareness and response training
+	- Partner with social workers to improve patient support and care services
+(4) Optimize Ambulatory and Outpatient Services
+	- 66% of encounters fall under ambulatory and outpatient categories
+	- Allocate staff and resources strategically to support busy outpatient departments
+	- Reallocate resources away from low demand services to outpatient departments as needed
 
 -------------------------------------------------------
 (1a) How many total encounters occur each month?
@@ -126,7 +139,7 @@ from
 	from age_group_encounters
 	group by age_group
 	) age_group_encounters
-order by age_Group;
+order by age_group;
 
 
 /*
