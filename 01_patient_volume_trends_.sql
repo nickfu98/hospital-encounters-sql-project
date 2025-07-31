@@ -31,7 +31,9 @@ Recommendations:
 	- 66% of encounters fall under ambulatory and outpatient categories
 	- Allocate staff and resources strategically to support busy outpatient departments
 	- Reallocate resources away from low demand services to outpatient departments as needed
+*/
 
+/*
 -------------------------------------------------------
 (1a) How many total encounters occur each month?
 -------------------------------------------------------
