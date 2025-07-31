@@ -12,6 +12,13 @@ Key Findings:
 (3) Asessments of health/social care needs and depression screenings are the most frequent procedures
 (4) Ambulatory and outpatient encounters account for the majority of the visits (66%)
 
+Recommendations:
+(1a) Prepare for increased demand in February by ensuring adequate staffing, scheduling flexibility and extra availability during the month. 
+(1b) As the 80+ patients make up over 60% of all encounters we should prioritize mobility-friendly infrastructure in and around the hospital, geriatric care services, and chronic disease programs. 
+(2)
+(3)
+(4)
+
 -------------------------------------------------------
 (1a) How many total encounters occur each month?
 -------------------------------------------------------
