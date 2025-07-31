@@ -11,7 +11,7 @@ Business Questions:
 (4) Which insurance payers have the highest readmission rates?
 
 
-Key Findings
+Key Findings:
 (1) The overall 30-day readmission rate is 61.58%. 
 (2) Patients over the age of 80 have the highest rates of readmission by far at 69.46% with 60-70 year olds with the least amount of readmission (41.93%).
 (3) Urgent care visits have the highest rates of readmission at 74.14% and wellness visits have the lowest rates of readmission at 21.28%.
