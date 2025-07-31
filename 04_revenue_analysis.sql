@@ -20,12 +20,18 @@ Key Findings
 	- Medicare - $1,690
 (2a) Top 3 procedures by total revenue:
 	- Electrical cardioversion - $36,464,315
-	- Ausculation of the fetal heart - $18,332,574
+	- Auscultation of the fetal heart - $18,332,574
 	- Evaluation of uterine fundal height - $18,332,574
 (2b) Top 3 procedures by average revenue per encounter
 	- Transfer to stepdown unit - $385,387
 	- Admit to ICU - $385,130
-	- Resuscitation using intravenous fluid $321,102
+	- Resuscitation using intravenous fluid - $321,102
+
+Recommendations:
+(1) Focus on Building Strong Partnerships with Medicare, Medicaid, and Blue Cross Blue Shield
+	- Find ways to increase the revenue earned per encounter through improved billing and contracts with these providers
+(2) Keep High Revenue Procedures Well Equipped
+	- Make sure the high revenue procedures are well staffed and scheduled efficiently to keep up with demand
 */
 
 
