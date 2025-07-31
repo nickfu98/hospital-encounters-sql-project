@@ -5,17 +5,31 @@ Identify patient factors and services contributing to longer hospital stays to i
 
 Business Questions:
 (1) Which patients result in longer hospital stays?
-(2) Which procedures result in longer stays?
-(3) Are there seasonal or year-to-year changes in stay durations?
+(2) Are there seasonal or year-to-year changes in stay durations?
+(3) Which procedures result in longer stays?
 
-Key Findings
+
+Key Findings:
 (1) 30-40 and 40-50 age groups have the highest average lengths of stay at 30 hours.
 (2a) December (21hr) and March (17hr) have the highest average length of stay per month.
-(2b) The average legnth of stay in 2014 is significantly higher than all the other years at 38 hours.
+(2b) The average length of stay in 2014 is significantly higher than all the other years at 38 hours.
 (3) The top 3 procedures with the longest average lengths of stay are all related to breast cancer:
 	- Magnetic resonance imaging of breast - 3382hrs
 	- Screening mammography - 1993hrs
 	- Biopsy of breast - 1463 hrs
+
+Recommendations
+(1) Focus on the 30-50 Age Group Patients
+	- Focus discharge planning and post-visit care on these patients since they have the highest average lengths of stay
+	- Create special care and resource allocations plans to free up beds faster and avoid delays
+(2) Investigate Factors Resulting in Longer Stays
+	- Look into why patients stay longer in December and March, such as more illnesses during certain seasons or holidays
+	- Check what happened in 2014 that made average hospital stays longer and make sure to correct any problems found
+	- Plan resources accordingly to reduce lengths of stay especially in December and March
+(3) Breast Cancer Procedures
+	- Focus on improving how breast cancer procedures are handled since they usually have the longest length of stay
+	- Ensure there are enough staff and special care teams to manage breast cancer related procedures
+
 
 -------------------------------------------------------
 (1) What is the average length of stay by age group?
