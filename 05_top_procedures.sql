@@ -16,8 +16,23 @@ Key Findings:
 	- 70-80 - Assessment of health and social care needs
 	- 80+ - Assessment of health and social care needs
 (2) Top procedures for male and female patients
-	- Male - Assessment of health and social care needs, Depression screening using Patient Health Questionnaire Two-Item score, and Depression screening 
-	- Female - Renal dialysis, Assessment of health and social care needs, and Depression screening 
+	- Male:
+		- Assessment of health and social care needs
+		- Depression screening using Patient Health Questionnaire Two-Item score
+		- Depression screening 
+	- Female:
+		- Renal dialysis
+		- Assessment of health and social care needs
+		- Depression screening 
+
+Recommendations:
+(1) Top Procedures by Age Group
+	- Make sure the most common procedures in each age group are well equipped and staffed to keep up with demand
+	- For patients 50+ plan for more health and social care support since these are the most frequent procedures for them
+(2) Top Procedures by Gender
+	- For both men and women prioritize mental health screenings and proper care by staff to address depression needs.
+	Also, focus on health and social care to address these needs
+	- For women make sure there is adequate support for kidney dialysis and regular health check ups
 */
 
 /*
