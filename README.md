@@ -34,7 +34,7 @@ I've utilized this project to demonstrate my practical SQL skills aligned with t
 
 ## Key Business Questions Answered
 
-### PATIENT VOLUME TRENDS
+### [PATIENT VOLUME TRENDS](https://github.com/nickfu98/hospital-encounters-sql-project/blob/main/01_patient_volume_trends_.sql)
 **Which patient types drive encounter volume across time, age, procedures, and encounter class?**
 
   - How many total encounters occur each month and each year? What are the year-over-year changes?
@@ -44,7 +44,7 @@ I've utilized this project to demonstrate my practical SQL skills aligned with t
 
 ---
 
-### LENGTH OF STAY (LOS)
+### [LENGTH OF STAY (LOS)](https://github.com/nickfu98/hospital-encounters-sql-project/blob/main/02_length_of_stay.sql)
 **Which patients and procedures result in longer hospital stays?**
 
   - What is the average length of stay by age group?
@@ -53,7 +53,7 @@ I've utilized this project to demonstrate my practical SQL skills aligned with t
 
 ---
 
-### READMISSION RATES
+### [READMISSION RATES](https://github.com/nickfu98/hospital-encounters-sql-project/blob/main/03_readmission_rates.sql)
 **Who is most likely to return within 30 days, and why?**
 
   - What is the overall 30-day readmission rate?
@@ -63,7 +63,7 @@ I've utilized this project to demonstrate my practical SQL skills aligned with t
 
 ---
 
-### REVENUE ANALYSIS
+### [REVENUE ANALYSIS](https://github.com/nickfu98/hospital-encounters-sql-project/blob/main/04_revenue_analysis.sql)
 **What does hospital revenue come from?**
 
   - Which insurance payers generate the most revenue?
@@ -71,7 +71,7 @@ I've utilized this project to demonstrate my practical SQL skills aligned with t
 
 ---
 
-### TOP PROCEDURES
+### [TOP PROCEDURES](https://github.com/nickfu98/hospital-encounters-sql-project/blob/main/05_top_procedures.sql)
 **What clinical services are used most across patient populations?**
 
   - What are the top procedures for each age group?
