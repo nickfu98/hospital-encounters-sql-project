@@ -15,22 +15,22 @@ Key Findings:
 (4) Ambulatory and outpatient encounters account for the majority of the visits (66%)
 
 Recommendations:
-(1) Plan Ahead for February Demand
+(1) Plan Ahead for February Visits Surge
 	- February sees the highest encounter volume of the year
-	- Ensure adequate staffing and scheduling flexibility, as well as prepare for additional appointments 
+	- Plan for extra staff, flexible schedules, and more appointment times
 (2) Prioritize Care for 80+ Age Group
-	- The 80+ age group accounts for 60% of all total visits
-	- Provide accessible infrastructure like wheelchair ramps and transportation services for elderly folks with mobility issues
-	- Invest in programs for elderly care and chronic illness care
-	- Ensure the hospital has safety measures to reduce fall risks
-(3) Support for Mental Health and Social Needs
-	- The most common procedures deal with depression screenings and social care needs
-	- Equip our staff with mental health awareness and response training
-	- Partner with social workers to improve patient support and care services
+	- Seniors 80+ account for 60% of all visits
+	- Make the hospital easy to access with wheelchair ramps and transport help for elderly patients with mobility issues
+	- Offer more elderly care programs and support for chronic conditions
+	- Ensure safety measures are put in place to prevent injuries from falls
+(3) Improve Mental Health and Social Support
+	- Depression checks and social care are the most common procedures
+	- Train staff to recognize and respond to mental health needs
+	- Work with social workers to provide better follow-up and support
 (4) Optimize Ambulatory and Outpatient Services
 	- 66% of encounters fall under ambulatory and outpatient categories
-	- Allocate staff and resources strategically to support busy outpatient departments
-	- Reallocate resources away from low demand services to outpatient departments as needed
+	- Make sure outpatient areas are well staffed and equipped
+	- Reallocate resources away low-demand areas if needed
 */
 
 /*
