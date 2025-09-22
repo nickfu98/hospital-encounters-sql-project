@@ -10,16 +10,16 @@ Which patient types drive encounter volume across time, age, procedures and enco
 Key Findings:
 (1a) February has the highest share of visits (10%)
 (1b) Yearly encounters stays around 2,300-2,500 except for increased volume in 2014 and 2021
-(2) Age 80+ patients overwhelmingly account for the largest proportion of visits (60%)
+(2) Patients 80+ overwhelmingly account for the largest proportion of visits (50%)
 (3) Assessments of health/social care needs and depression screenings are the most frequent procedures
-(4) Ambulatory and outpatient encounters account for the majority of the visits (66%)
+(4) Ambulatory (44%) and outpatient (22%) encounters account for the majority of the visits
 
 Recommendations:
 (1) Plan ahead for February visits surge
 	- February sees the highest encounter volume of the year
 	- Plan for extra staff, flexible schedules, and more appointment times
 (2) Prioritize care for 80+ age group
-	- Seniors 80+ account for 60% of all visits
+	- Seniors 80+ account for 50% of all visits
 	- Make the hospital easy to access with wheelchair ramps and transport help for elderly patients with mobility issues
 	- Offer more elderly care programs and support for chronic conditions
 	- Ensure safety measures are put in place to prevent injuries from falls
