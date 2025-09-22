@@ -86,7 +86,7 @@ SELECT TOP 10
 	procedure_code,
 	description,
 	round(sum(total_claim_cost), 0) AS total_revenue,
-	round(AVG(total_claim_cost), 0) AS AVG_revenue_per_encounter
+	round(AVG(total_claim_cost), 0) AS avg_revenue_per_encounter
 FROM procedures_payment
 GROUP BY procedure_code, description
 ORDER BY total_revenue DESC;
