@@ -15,19 +15,19 @@ Key Findings:
 (4) Ambulatory and outpatient encounters account for the majority of the visits (66%)
 
 Recommendations:
-(1) Plan Ahead for February Visits Surge
+(1) Plan ahead for February visits surge
 	- February sees the highest encounter volume of the year
 	- Plan for extra staff, flexible schedules, and more appointment times
-(2) Prioritize Care for 80+ Age Group
+(2) Prioritize care for 80+ age group
 	- Seniors 80+ account for 60% of all visits
 	- Make the hospital easy to access with wheelchair ramps and transport help for elderly patients with mobility issues
 	- Offer more elderly care programs and support for chronic conditions
 	- Ensure safety measures are put in place to prevent injuries from falls
-(3) Improve Mental Health and Social Support
+(3) Improve mental health and social support
 	- Depression checks and social care are the most common procedures
 	- Train staff to recognize and respond to mental health needs
 	- Work with social workers to provide better follow-up and support
-(4) Optimize Ambulatory and Outpatient Services
+(4) Optimize ambulatory and outpatient services
 	- 66% of encounters fall under ambulatory and outpatient categories
 	- Make sure outpatient areas are well staffed and equipped
 	- Reallocate resources away low-demand areas if needed
@@ -39,29 +39,29 @@ Recommendations:
 -------------------------------------------------------
 */ 
 
-with encounter_date_details as(
-select
+WITH encounter_date_details AS(
+SELECT
 	encount.encounter_id,
 	encount.start,
 	encount.stop,
-	cast(encount.start as date) date
-from encounters encount
+	CAST(encount.start AS date) date
+FROM encounters encount
 )
 
-select
-	month,
+SELECT
+	MONTH,
 	encounters,
-	round(100* encounters/sum(encounters) over() ,0) as pct_of_total
-from
+	round(100* encounters/sum(encounters) over() ,2) AS pct_of_total
+FROM
 	(
-	select
-		datename(month, date) as month,
-		month(date) month_num,
-		count(distinct encounter_id) encounters
-	from encounter_date_details
-	group by datename(month, date), month(date)
-	) Monthly_Encounters
-order by month_num;
+	SELECT
+		DATENAME(MONTH, date) AS month,
+		MONTH(date) MONTH_num,
+		COUNT(DISTINCT encounter_id) encounters
+	FROM encounter_date_details
+	GROUP BY DATENAME(MONTH, date), MONTH(date)
+	) MONTHly_encounters
+ORDER BY MONTH_num;
 
 /*
 -------------------------------------------------------
@@ -70,38 +70,39 @@ order by month_num;
 -------------------------------------------------------
 */
 	
-with encounters_year as(
-select
+WITH encounters_YEAR AS(
+SELECT
 	encount.encounter_id,
-	year(encount.start) as year
-from encounters encount
+	YEAR(encount.start) AS YEAR
+FROM encounters encount
 )
 
-, Encounters_by_year as(
-select
-	year,
-	count(encounter_id) as total_encounters
-from encounters_year
-group by year
+, encounters_by_YEAR AS(
+SELECT
+	YEAR,
+	COUNT(encounter_id) AS total_encounters
+FROM encounters_YEAR
+GROUP BY YEAR
 )
 
-, YoY_Difference as(
-select
-	year,
+, YoY_Difference AS(
+SELECT
+	YEAR,
 	total_encounters,
-	lag(total_encounters) over(order by year) last_year,
-	total_encounters - lag(total_encounters) over(order by year) as difference
-from Encounters_by_year
-group by year, total_encounters
+	LAG(total_encounters) over(ORDER BY YEAR) last_year,
+	total_encounters - LAG(total_encounters) over(ORDER BY YEAR) AS difference
+FROM encounters_by_year
+GROUP BY YEAR, total_encounters
 )
 
-select
-	year,
+
+SELECT
+	YEAR,
 	total_encounters,
-	case 
-	when last_year is null then null else
-	concat(100*difference/ last_year, '%') end as YoY_Pct_change
-from yoy_difference;
+	CASE 
+		WHEN last_year is null THEN null 
+		ELSE ROUND((100.0*difference/ last_year), 2) END AS YoY_Pct_change
+FROM yoy_difference;
 
 /*
 -------------------------------------------------------
@@ -109,39 +110,55 @@ from yoy_difference;
 -------------------------------------------------------
 */
 
-with age_group_encounters as(
-select
-	encount.encounter_id,
-	case
-		when pat.death_date is null then datediff(year, pat.birth_date, getdate())
-		when pat.death_date is not null then datediff(year, pat.birth_date, pat.death_date) end
-	 as age,
-	case
-		when datediff(year, pat.birth_date, getdate()) between 30 and 40 then '30-40'
-		when datediff(year, pat.birth_date, getdate()) between 40 and 50 then '40-50'
-		when datediff(year, pat.birth_date, getdate()) between 50 and 60 then '50-60'
-		when datediff(year, pat.birth_date, getdate()) between 60 and 70 then '60-70'
-		when datediff(year, pat.birth_date, getdate()) between 70 and 80 then '70-80'
-		when datediff(year, pat.birth_date, getdate()) > 80 then '80+' end
-	as age_group
-from encounters encount 
-	left join patients pat
-	on encount.patient_id = pat.patient_id
-)
+-- Create a VIEW for easier queries involving age at encounter
 
-select
-	age_group,
-	total_encounters,
-	round(100* total_encounters/sum(total_encounters) over() ,0) as pct_of_total
-from 
+CREATE OR ALTER VIEW dbo.vw_encounter_age AS
+SELECT
+    encount.encounter_id,
+    encount.patient_id,
+    encount.start AS encounter_start,
+    pat.gender,
+    FLOOR(DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25) AS age_at_encounter,
+    CASE
+		WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 0 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 30 THEN '<30'
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 30 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 40 THEN '30-39'
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 40 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 50 THEN '40-49'
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 50 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 60 THEN '50-59'
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 60 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 70 THEN '60-69'
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 70 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 80 THEN '70-79'
+		ELSE '80+'
+    END AS age_group_at_encounter,
+	CASE
+		WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 0 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 30 THEN 0
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 30 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 40 THEN 1
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 40 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 50 THEN 2
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 50 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 60 THEN 3
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 60 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 70 THEN 4
+        WHEN DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 >= 70 AND DATEDIFF(DAY, pat.birth_date, CAST(encount.start AS DATE)) / 365.25 < 80 THEN 5
+		ELSE 6
+	END AS age_group_sort
+FROM dbo.encounters AS encount
+JOIN dbo.patients AS pat
+  ON pat.patient_id = encount.patient_id;
+GO
+
+-- Total Encounters per Age Group
+WITH age_group_encounters AS
 	(
-	select
-		age_group,
-		count(distinct encounter_id) total_encounters
-	from age_group_encounters
-	group by age_group
-	) age_group_encounters
-order by age_group;
+    SELECT
+        v.age_group_at_encounter AS age_group,
+        MIN(v.age_group_sort) AS sort_key,
+        COUNT(DISTINCT v.encounter_id) AS total_encounters
+    FROM dbo.vw_encounter_age AS v
+    GROUP BY v.age_group_at_encounter
+	)
+
+SELECT
+    age_group,
+    total_encounters,
+    CAST(ROUND(100.0 * total_encounters / SUM(total_encounters) OVER (), 0) AS INT) AS pct_of_total
+FROM age_group_encounters
+ORDER BY sort_key;
 
 
 /*
@@ -150,35 +167,35 @@ order by age_group;
 -------------------------------------------------------
 */
 
-with procedure_encounters as(	
-select
+WITH procedure_encounters AS(	
+SELECT
 	encount.encounter_id,
 	encount.encounter_class,
 	prod.description,
 	prod.procedure_code
-from encounters encount 
-	join procedures prod
-	on encount.encounter_id = prod.encounter_id
+FROM encounters encount 
+	JOIN procedures prod
+	ON encount.encounter_id = prod.encounter_id
 )
 
-select top 10
+SELECT TOP 10
 	procedure_code,
 	description,
 	encounters,
-	round(100* encounters/sum(encounters) over() ,0) as pct_of_total
-from 
+	round(100* encounters/sum(encounters) over() ,0) AS pct_of_total
+FROM 
 	(
-	select
+	SELECT
 		procedure_code,
 		description,
-		count(distinct encounter_id) encounters
-	from procedure_encounters
-	group by 
+		COUNT(DISTINCT encounter_id) encounters
+	FROM procedure_encounters
+	GROUP BY 
 		procedure_code, 
 		description
-	) procedure_encounter_count
-order by 
-	encounters desc;
+	) procedure_encounter_COUNT
+ORDER BY 
+	encounters DESC;
 
 
 /*
@@ -187,26 +204,27 @@ order by
 -------------------------------------------------------
 */
 
-with encounter_class_encounters as(
-select
+WITH encounter_class_encounters AS(
+SELECT
 	encount.encounter_id,
 	encounter_class
-from encounters encount 
+FROM encounters encount 
+
 )
 
-select
+SELECT
 	encounter_class,
 	encounters,
-	round(100* encounters/sum(encounters) over() ,0) as pct_of_total
-from
+	round(100* encounters/sum(encounters) over() ,0) AS pct_of_total
+FROM
 	(
-	select
+	SELECT
 		encounter_class,
-		count(distinct encounter_id) encounters
-	from encounter_class_encounters
-	group by encounter_class
-	) Class_Encounters
-order by encounters desc;
+		COUNT(DISTINCT encounter_id) encounters
+	FROM encounter_class_encounters
+	GROUP BY encounter_class
+	) class_encounters
+ORDER BY encounters DESC;
 
 
 
