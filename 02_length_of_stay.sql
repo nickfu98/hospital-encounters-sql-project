@@ -10,7 +10,7 @@ Business Questions:
 
 
 Key Findings:
-(1) 30-40 and 40-50 age groups have the highest average lengths of stay at 30 hours.
+(1) Patients under 30 years old (41.9 hrs) and 30-39 (29.3 hrs) have the highest average lengths of stay
 (2a) December (21hr) and March (17hr) have the highest average length of stay per month.
 (2b) The average length of stay in 2014 is significantly higher than all the other years at 38 hours.
 (3) The top 3 procedures with the longest average lengths of stay are all related to breast cancer:
@@ -19,7 +19,7 @@ Key Findings:
 	- Biopsy of breast - 1463 hrs
 
 Recommendations
-(1) Focus on the 30-50 Age Group Patients
+(1) Focus on the <40 Age Group Patients
 	- Patients in this age group have the longest hospital stays
 	- Improve discharge planning and follow-up care to reduce length of stay
 (2) Understand What Causes Longer Stays
@@ -38,7 +38,7 @@ Recommendations
 -------------------------------------------------------
 */
 
--- Using dbo.vw_encounter_age VIEW created in (1)
+-- Using dbo.vw_encounter_age VIEW created in (01)
 
 WITH LOS AS
 	(
