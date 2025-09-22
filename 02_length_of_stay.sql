@@ -126,7 +126,7 @@ FROM encounters encount
 WHERE prod.procedure_code is not null
 )
 
-SELECT
+SELECT TOP 10
 	procedure_code,
 	description,
 	AVG(los_hrs) AVG_LOS
