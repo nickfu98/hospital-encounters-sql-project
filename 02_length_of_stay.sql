@@ -38,36 +38,27 @@ Recommendations
 -------------------------------------------------------
 */
 
-with LOS_age as(
-select
-	encount.encounter_Id,
-	encount.start,
-	encount.stop,
-	encount.encounter_class,
-	datediff(hour, encount.start, encount.stop) LOS_hrs,
-	case
-		when pat.death_date is null then datediff(year, pat.birth_date, getdate())
-		when pat.death_date is not null then datediff(year, pat.birth_date, pat.death_date) end
-	 as age,
-	 case
-		when datediff(year, pat.birth_date, getdate()) between 30 and 40 then '30-40'
-		when datediff(year, pat.birth_date, getdate()) between 40 and 50 then '40-50'
-		when datediff(year, pat.birth_date, getdate()) between 50 and 60 then '50-60'
-		when datediff(year, pat.birth_date, getdate()) between 60 and 70 then '60-70'
-		when datediff(year, pat.birth_date, getdate()) between 70 and 80 then '70-80'
-		when datediff(year, pat.birth_date, getdate()) > 80 then '80+' end
-	as age_group
-from encounters encount
-	left join patients pat
-	on encount.patient_id = pat.patient_id
-)
+-- Using dbo.vw_encounter_age VIEW created in (1)
 
-select
+WITH LOS AS
+	(
+	SELECT
+		v.age_group_at_encounter AS age_group,
+		v.age_group_sort AS sort_key,
+		DATEDIFF(HOUR, encount.start, encount.stop) AS LOS_hours
+
+	FROM dbo.vw_encounter_age AS v
+	JOIN dbo.encounters AS encount
+		ON encount.encounter_id = v.encounter_id
+	WHERE encount.stop IS NOT NULL
+	)
+
+SELECT
 	age_group,
-	avg(LOS_hrs) Avg_LOS_hrs
-from LOS_age
-group by age_group
-order by age_group;
+	ROUND(AVG(CAST(LOS_hours AS FLOAT)),1) AS avg_LOS_hrs
+FROM LOS
+GROUP BY age_group, sort_key
+ORDER BY sort_key
 
 
 /*
@@ -76,22 +67,22 @@ order by age_group;
 -------------------------------------------------------
 */
 
-with LOS as(
-select
+WITH LOS AS(
+SELECT
 	start,
 	stop,
-	datename(month, start) month,
-	month(start) month_num,
-	datediff(hour, start, stop) LOS_hrs
-from encounters
+	DATENAME(MONTH, start) MONTH,
+	MONTH(start) MONTH_num,
+	DATEDIFF(hour, start, stop) LOS_hrs
+FROM encounters
 )
 
-select
-	month,
-	avg(los_hrs) Avg_LOS
-from LOS
-group by month, month_num
-order by month_num;
+SELECT
+	MONTH,
+	AVG(los_hrs) AVG_LOS
+FROM los
+GROUP BY MONTH, MONTH_num
+ORDER BY MONTH_num;
 
 /*
 -------------------------------------------------------
@@ -99,22 +90,22 @@ order by month_num;
 -------------------------------------------------------
 */
 
-with LOS as(
-select
+WITH LOS AS(
+SELECT
 	start,
 	stop,
-	datename(year, start) year,
-	year(start) year_num,
-	datediff(hour, start, stop) LOS_hrs
-from encounters
+	DATENAME(YEAR, start) YEAR,
+	YEAR(start) YEAR_num,
+	DATEDIFF(hour, start, stop) LOS_hrs
+FROM encounters
 )
 
-select
-	year,
-	avg(los_hrs) Avg_LOS
-from LOS
-group by year, year_num
-order by year_num;
+SELECT
+	YEAR,
+	AVG(los_hrs) AVG_LOS
+FROM los
+GROUP BY YEAR, YEAR_num
+ORDER BY YEAR_num;
 
 /*
 -------------------------------------------------------
@@ -122,23 +113,23 @@ order by year_num;
 -------------------------------------------------------
 */
 
-with LOS as(
-select
+WITH LOS AS(
+SELECT
 	encount.start,
 	encount.stop,
-	datediff(hour, encount.start, encount.stop) LOS_hrs,
+	DATEDIFF(HOUR, encount.start, encount.stop) AS LOS_hrs,
 	prod.procedure_code,
 	prod.description
-from encounters encount
-	left join procedures prod
-	on encount.encounter_id = prod.encounter_id
-where prod.procedure_code is not null
+FROM encounters encount
+	LEFT JOIN procedures prod
+	ON encount.encounter_id = prod.encounter_id
+WHERE prod.procedure_code is not null
 )
 
-select
+SELECT
 	procedure_code,
 	description,
-	avg(los_hrs) Avg_LOS
-from LOS
-group by procedure_code, description
-order by avg_los desc;
+	AVG(los_hrs) AVG_LOS
+FROM los
+GROUP BY procedure_code, description
+ORDER BY AVG_los DESC;
