@@ -13,9 +13,9 @@ Business Questions:
 
 Key Findings:
 (1) The overall 30-day readmission rate is 62.35%. 
-(2) Patients over the age of 80 have the highest rates of readmission by far at 69.46% with 60-70 year olds with the least amount of readmission (41.93%).
+(2) Patients over the age of 80 have the highest rates of readmission by far at 74.16% with 40-49 year olds with the least amount of readmission at 45.29%.
 (3) Urgent care visits have the highest rates of readmission at 74.14% and wellness visits have the lowest rates of readmission at 21.28%.
-(4) Patients with no insurance have the highest rates of readmission at 76.83% and those with Anthem insurance have the lowest rates of readmission at 31.35%.
+(4) Patients with no insurance have the highest rates of readmission at 77.27% and those with Anthem insurance have the lowest rates of readmission at 32.24%.
 NOTE: These RR% would be EXTREMELY high in a real world hospital, however coming from a synthetic dataset, the numbers do not reflect reality.
 
 Recommendations:
@@ -25,7 +25,7 @@ Recommendations:
 (2) Readmission by Age Group - 80+
 	- Provide extra support for 80+ age group patients as they have the highest readmission rates. This can include specialized after-care plans,
 	more frequent follow up calls, and at home visits
-	- Figure out why 60-70 year olds have lower readmission rates and try to implement those best practices with the other age groups
+	- Figure out why 40-49 year olds have lower readmission rates and try to implement those best practices with the other age groups
 (3) High Readmission Encounter Classes - Urgent care
 	- Pay closer attention to urgent care patients because they have the highest rates of readmission. Arrange follow up visits and prepare after care
 	before they leave so they readmit less
