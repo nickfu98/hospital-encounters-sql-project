@@ -41,29 +41,27 @@ Recommendations:
 -------------------------------------------------------
 */
 
-with encounters_payment as (
-	select
+WITH encounters_payment AS (
+	SELECT
 		encount.encounter_id,
 		encount.payer_id,
 		pay.payer_name,
-		round(encount.total_claim_cost, 2) as total_claim_cost,
-		round(encount.payer_coverage, 2) as payer_coverage,
-		round((encount.total_claim_cost - encount.payer_coverage), 2) as patient_cost
-	from encounters encount
-		left join payers pay
-		on encount.payer_id = pay.payer_id
-	where total_claim_cost is not null
+		round(encount.total_claim_cost, 2) AS total_claim_cost,
+		round(encount.payer_coverage, 2) AS payer_coverage,
+		round((encount.total_claim_cost - encount.payer_coverage), 2) AS patient_cost
+	FROM encounters encount
+		LEFT JOIN payers pay
+		ON encount.payer_id = pay.payer_id
+	WHERE total_claim_cost is not null
 )
 
-select
+SELECT
 	payer_name,
-	round(sum(payer_coverage), 0) as total_payer_revenue,
-	round(avg(payer_coverage), 0) as avg_revenue_per_encounter,
-	round(sum(patient_cost), 0) as total_patient_revenue,
-	round(avg(patient_cost), 0) as avg_patient_cost
-from encounters_payment
-group by payer_name
-order by total_payer_revenue desc;
+	round(sum(payer_coverage), 0) AS total_payer_revenue,
+	round(AVG(payer_coverage), 0) AS avg_revenue_per_encounter
+FROM encounters_payment
+GROUP BY payer_name
+ORDER BY total_payer_revenue DESC;
 
 
 /*
@@ -72,23 +70,23 @@ order by total_payer_revenue desc;
 -------------------------------------------------------
 */
 
-with procedures_payment as(
-	select
+WITH procedures_payment AS(
+	SELECT
 		encount.encounter_id,
 		prod.procedure_code,
 		prod.description,
-		round(encount.total_claim_cost, 2) as total_claim_cost
-	from encounters encount
-		left join procedures prod
-			on encount.encounter_id = prod.encounter_id
-	where prod.procedure_code is not null
+		round(encount.total_claim_cost, 2) AS total_claim_cost
+	FROM encounters encount
+		LEFT JOIN procedures prod
+			ON encount.encounter_id = prod.encounter_id
+	WHERE prod.procedure_code is not null
 	)
 
-select top 10
+SELECT TOP 10
 	procedure_code,
 	description,
-	round(sum(total_claim_cost), 0) as total_revenue,
-	round(avg(total_claim_cost), 0) as avg_revenue_per_encounter
-from procedures_payment
-group by procedure_code, description
-order by total_revenue desc;
+	round(sum(total_claim_cost), 0) AS total_revenue,
+	round(AVG(total_claim_cost), 0) AS AVG_revenue_per_encounter
+FROM procedures_payment
+GROUP BY procedure_code, description
+ORDER BY total_revenue DESC;
