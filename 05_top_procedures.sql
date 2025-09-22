@@ -9,16 +9,17 @@ Business Questions:
 
 Key Findings:
 (1) Top procedures for each age group:
-	- 30-40 - Ultrasound scan for fetal viability
-	- 40-50 - Auscultation of the fetal heart
-	- 50-60 - Assessment of health and social care needs
-	- 60-70 - Assessment of health and social care needs 
-	- 70-80 - Assessment of health and social care needs
-	- 80+ - Assessment of health and social care needs
+	- <30 - Auscultation of the fetal heart
+	- 30-39 - Auscultation of the fetal heart
+	- 40-49 - Assessment of health and social care needs
+	- 50-59 - Assessment of health and social care needs
+	- 60-69 - Assessment of health and social care needs 
+	- 70-79 - Assessment of health and social care needs
+	- 80+ - Renal Dialysis
 (2) Top procedures for male and female patients
 	- Male:
 		- Assessment of health and social care needs
-		- Depression screening using Patient Health Questionnaire Two-Item score
+		- Depression screening using patient health questionnaire two-item score
 		- Depression screening 
 	- Female:
 		- Renal dialysis
@@ -28,7 +29,7 @@ Key Findings:
 Recommendations:
 (1) Top Procedures by Age Group
 	- Make sure the most common procedures in each age group are well equipped and staffed to keep up with demand
-	- For patients 50+ plan for more health and social care support since these are the most frequent procedures for them
+	- For majority of patients, plan for more health and social care support since these are the most frequent procedures across the board
 (2) Top Procedures by Gender
 	- For both men and women prioritize mental health screenings and proper care by staff to address depression needs.
 	Also, focus on health and social care to address these needs
