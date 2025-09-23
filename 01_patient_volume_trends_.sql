@@ -49,9 +49,9 @@ FROM encounters encount
 )
 
 SELECT
-	MONTH,
+	month,
 	encounters,
-	round(100* encounters/sum(encounters) over() ,2) AS pct_of_total
+	ROUND(100* encounters/sum(encounters) over() ,2) AS pct_of_total
 FROM
 	(
 	SELECT
@@ -60,8 +60,8 @@ FROM
 		COUNT(DISTINCT encounter_id) encounters
 	FROM encounter_date_details
 	GROUP BY DATENAME(MONTH, date), MONTH(date)
-	) MONTHly_encounters
-ORDER BY MONTH_num;
+	) monthly_encounters
+ORDER BY month_num;
 
 /*
 -------------------------------------------------------
