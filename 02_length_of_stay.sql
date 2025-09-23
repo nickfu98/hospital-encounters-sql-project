@@ -40,7 +40,7 @@ Recommendations
 
 -- Using dbo.vw_encounter_age VIEW created in (01)
 
-WITH LOS AS
+WITH LOS_age_group AS
 	(
 	SELECT
 		v.age_group_at_encounter AS age_group,
@@ -56,7 +56,7 @@ WITH LOS AS
 SELECT
 	age_group,
 	ROUND(AVG(CAST(LOS_hours AS FLOAT)),1) AS avg_LOS_hrs
-FROM LOS
+FROM LOS_age_group
 GROUP BY age_group, sort_key
 ORDER BY sort_key
 
@@ -67,22 +67,22 @@ ORDER BY sort_key
 -------------------------------------------------------
 */
 
-WITH LOS AS(
+WITH LOS_monthly AS(
 SELECT
 	start,
 	stop,
-	DATENAME(MONTH, start) MONTH,
-	MONTH(start) MONTH_num,
+	DATENAME(MONTH, start) month,
+	MONTH(start) month_num,
 	DATEDIFF(hour, start, stop) LOS_hrs
 FROM encounters
 )
 
 SELECT
-	MONTH,
+	month,
 	AVG(los_hrs) AVG_LOS
-FROM los
-GROUP BY MONTH, MONTH_num
-ORDER BY MONTH_num;
+FROM LOS_monthly
+GROUP BY MONTH, month_num
+ORDER BY month_num;
 
 /*
 -------------------------------------------------------
@@ -90,20 +90,20 @@ ORDER BY MONTH_num;
 -------------------------------------------------------
 */
 
-WITH LOS AS(
+WITH LOS_yearly AS(
 SELECT
 	start,
 	stop,
-	DATENAME(YEAR, start) YEAR,
-	YEAR(start) YEAR_num,
+	DATENAME(YEAR, start) year,
+	YEAR(start) year_num,
 	DATEDIFF(hour, start, stop) LOS_hrs
 FROM encounters
 )
 
 SELECT
-	YEAR,
+	year,
 	AVG(los_hrs) AVG_LOS
-FROM los
+FROM LOS_yearly
 GROUP BY YEAR, YEAR_num
 ORDER BY YEAR_num;
 
@@ -113,7 +113,7 @@ ORDER BY YEAR_num;
 -------------------------------------------------------
 */
 
-WITH LOS AS(
+WITH LOS_procedures AS(
 SELECT
 	encount.start,
 	encount.stop,
@@ -130,6 +130,6 @@ SELECT TOP 10
 	procedure_code,
 	description,
 	AVG(los_hrs) AVG_LOS
-FROM los
+FROM LOS_procedures
 GROUP BY procedure_code, description
 ORDER BY AVG_los DESC;
