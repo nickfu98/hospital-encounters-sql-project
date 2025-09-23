@@ -36,93 +36,65 @@ Recommendations:
 
 /*
 -------------------------------------------------------
+Create a VIEW to simplify all readmissions related queries
+-------------------------------------------------------
+*/
+
+CREATE OR ALTER VIEW dbo.vw_readmissions AS
+WITH encounters_ordered AS (
+SELECT
+	encount.encounter_id,
+    encount.patient_id,
+	encount.encounter_class,
+	pay.payer_name,
+	v.age_group_at_encounter,
+	v.age_group_sort,
+    CAST(encount.start AS DATE) AS start_date,
+    CAST(encount.stop  AS DATE) AS stop_date,
+    LEAD(CAST(encount.start AS DATE)) OVER (PARTITION BY encount.patient_id ORDER BY encount.start) AS next_start_date
+FROM dbo.encounters encount
+	LEFT JOIN dbo.payers pay
+		ON encount.payer_id = pay.payer_id
+	JOIN dbo.vw_encounter_age v
+		ON encount.encounter_id = v.encounter_id
+WHERE encount.stop IS NOT NULL
+)
+
+SELECT
+	encounter_id,
+	encounter_class,
+	payer_name,
+	age_group_at_encounter,
+	age_group_sort,
+    CASE
+		WHEN next_start_date IS NOT NULL AND DATEDIFF(DAY, stop_date, next_start_date) <= 30 THEN 1 
+		ELSE 0
+    END AS yes_readmit_30d
+FROM encounters_ordered
+GO
+	
+/*
+-------------------------------------------------------
 (1) Overall Readmission Rate
 -------------------------------------------------------
 */
 
-WITH encounters_ordered AS (
-SELECT
-	encount.encounter_id,
-    encount.patient_id,
-	encount.encounter_class,
-	pay.payer_name,
-	v.age_group_at_encounter,
-	v.age_group_sort,
-    CAST(encount.start AS DATE) AS start_date,
-    CAST(encount.stop  AS DATE) AS stop_date,
-    LEAD(CAST(encount.start AS DATE)) OVER (PARTITION BY encount.patient_id ORDER BY encount.start) AS next_start_date
-FROM dbo.encounters encount
-	LEFT JOIN dbo.payers pay
-		ON encount.payer_id = pay.payer_id
-	JOIN dbo.vw_encounter_age v
-		ON encount.encounter_id = v.encounter_id
-WHERE encount.stop IS NOT NULL
-),
-
-readmissions AS (
-SELECT
-	encounter_id,
-	encounter_class,
-	payer_name,
-	age_group_at_encounter,
-	age_group_sort,
-    CASE
-		WHEN next_start_date IS NOT NULL AND DATEDIFF(DAY, stop_date, next_start_date) <= 30 THEN 1 
-		ELSE 0
-    END AS yes_readmit_30d
-FROM encounters_ordered
-)
-
 SELECT 
 	CAST(100.0 * SUM(yes_readmit_30d) / COUNT(*) AS DECIMAL(5,2)) AS readmission_rate_30d
-FROM readmissions;
-
+FROM dbo.vw_readmissions;
 
 /*
 -------------------------------------------------------
-(2) Readmission Rates per Age Group
+(2) Readmission Rates by Age Group
 -------------------------------------------------------
 */
-
-WITH encounters_ordered AS (
-SELECT
-	encount.encounter_id,
-    encount.patient_id,
-	encount.encounter_class,
-	pay.payer_name,
-	v.age_group_at_encounter,
-	v.age_group_sort,
-    CAST(encount.start AS DATE) AS start_date,
-    CAST(encount.stop  AS DATE) AS stop_date,
-    LEAD(CAST(encount.start AS DATE)) OVER (PARTITION BY encount.patient_id ORDER BY encount.start) AS next_start_date
-FROM dbo.encounters encount
-	LEFT JOIN dbo.payers pay
-		ON encount.payer_id = pay.payer_id
-	JOIN dbo.vw_encounter_age v
-		ON encount.encounter_id = v.encounter_id
-WHERE encount.stop IS NOT NULL
-),
-
-readmissions AS (
-SELECT
-	encounter_id,
-	encounter_class,
-	payer_name,
-	age_group_at_encounter,
-	age_group_sort,
-    CASE
-		WHEN next_start_date IS NOT NULL AND DATEDIFF(DAY, stop_date, next_start_date) <= 30 THEN 1 
-		ELSE 0
-    END AS yes_readmit_30d
-FROM encounters_ordered
-)
 
 SELECT
 	age_group_at_encounter AS age_group,
 	SUM(yes_readmit_30d) AS number_readmissions,
 	COUNT(*) as total_encounters,
 	CAST(100.0 * sum(yes_readmit_30d) / COUNT(*) AS DECIMAL(5,2)) AS readmission_rate_30d
-FROM readmissions
+FROM dbo.vw_readmissions
 GROUP BY age_group_at_encounter, age_group_sort
 ORDER BY age_group_sort;
 
@@ -132,48 +104,14 @@ ORDER BY age_group_sort;
 -------------------------------------------------------
 */
 	
-WITH encounters_ordered AS (
-SELECT
-	encount.encounter_id,
-    encount.patient_id,
-	encount.encounter_class,
-	pay.payer_name,
-	v.age_group_at_encounter,
-	v.age_group_sort,
-    CAST(encount.start AS DATE) AS start_date,
-    CAST(encount.stop  AS DATE) AS stop_date,
-    LEAD(CAST(encount.start AS DATE)) OVER (PARTITION BY encount.patient_id ORDER BY encount.start) AS next_start_date
-FROM dbo.encounters encount
-	LEFT JOIN dbo.payers pay
-		ON encount.payer_id = pay.payer_id
-	JOIN dbo.vw_encounter_age v
-		ON encount.encounter_id = v.encounter_id
-WHERE encount.stop IS NOT NULL
-),
-
-readmissions AS (
-SELECT
-	encounter_id,
-	encounter_class,
-	payer_name,
-	age_group_at_encounter,
-	age_group_sort,
-    CASE
-		WHEN next_start_date IS NOT NULL AND DATEDIFF(DAY, stop_date, next_start_date) <= 30 THEN 1 
-		ELSE 0
-    END AS yes_readmit_30d
-FROM encounters_ordered
-)
-
 SELECT
 	encounter_class,
 	SUM(yes_readmit_30d) readmissions_number,
 	COUNT(*) as total_encounters,
 	CAST(100.0 * SUM(yes_readmit_30d) / COUNT(*) AS DECIMAL(5,2)) AS readmission_rate_30d
-FROM readmissions
+FROM dbo.vw_readmissions
 GROUP BY encounter_class
 ORDER BY readmission_rate_30d DESC
-
 
 /*
 -------------------------------------------------------
@@ -181,44 +119,11 @@ ORDER BY readmission_rate_30d DESC
 -------------------------------------------------------
 */
 	
-WITH encounters_ordered AS (
-SELECT
-	encount.encounter_id,
-    encount.patient_id,
-	encount.encounter_class,
-	pay.payer_name,
-	v.age_group_at_encounter,
-	v.age_group_sort,
-    CAST(encount.start AS DATE) AS start_date,
-    CAST(encount.stop  AS DATE) AS stop_date,
-    LEAD(CAST(encount.start AS DATE)) OVER (PARTITION BY encount.patient_id ORDER BY encount.start) AS next_start_date
-FROM dbo.encounters encount
-	LEFT JOIN dbo.payers pay
-		ON encount.payer_id = pay.payer_id
-	JOIN dbo.vw_encounter_age v
-		ON encount.encounter_id = v.encounter_id
-WHERE encount.stop IS NOT NULL
-),
-
-readmissions AS (
-SELECT
-	encounter_id,
-	encounter_class,
-	payer_name,
-	age_group_at_encounter,
-	age_group_sort,
-    CASE
-		WHEN next_start_date IS NOT NULL AND DATEDIFF(DAY, stop_date, next_start_date) <= 30 THEN 1 
-		ELSE 0
-    END AS yes_readmit_30d
-FROM encounters_ordered
-)
-
 SELECT
 	payer_name,
 	SUM(yes_readmit_30d) readmissions_number,
 	COUNT(*) as total_encounters,
 	CAST(100.0 * SUM(yes_readmit_30d) / COUNT(*) AS DECIMAL(5,2)) AS readmission_rate_30d
-FROM readmissions
+FROM dbo.vw_readmissions
 GROUP BY payer_name
 ORDER BY readmission_rate_30d DESC;
