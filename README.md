@@ -3,7 +3,7 @@
 This project is meant to gain insights into patient readmissions, length of stay, revenue performance, and procedure trends using SQL queries.
 
 Tools Used: SQL Server Management Studio (SSMS)
-Data Size: 27,891 hospital encounters across 11 years
+Data Size: 27,891 hospital encounters from 2011 - 2022
 Focus Area: Healthcare operations and quality analytics
 
 ---
